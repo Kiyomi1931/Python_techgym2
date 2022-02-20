@@ -42,7 +42,7 @@ def play():
   choice = input('(例:A1)')
   input_number=change_input_number(choice)
   print('デバッグ:choice = ' + choice)
-  print('デバッグ:input_number = ' + input_number)
+  print('デバッグ:input_number = ' + str(input_number))
   
 start_message()
 play()
