@@ -12,16 +12,18 @@ def section_message():
 def view_question():
   choice_data = random.randint(0, 2)
   question = data[choice_data]
+  print(question)
 
   count_a=0
-  count_b=1
+  count_b=0
   question_copy=''
-  while count_a==3:
-    print(question_copy)
-    count_v+=1
-    while count_b==3:
+  while count_a<3:
+    while count_b<3:
       question_copy+=question[1]
       count_b+=1
+    print(question_copy)
+    count_a+=1
+    count_b=0
 
 def play():
   section_message()
