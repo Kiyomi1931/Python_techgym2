@@ -1,6 +1,7 @@
 import random
 
 data = [['見','貝'], ['土','士'], ['眠','眼']]
+change={'A':1,'B':2,'C':3}
 level = 1
 
 def start_message():
@@ -31,11 +32,17 @@ def view_question():
     i += 1
     j = 0
 
+def change_input_number(input_str):
+  change_alphabet=change[input_str[0]]
+  change_number=int(change[input_str[1]])
+  return change_alphabet+change_number
 def play():
   section_message()
   view_question()
   choice = input('(例:A1)')
+  input_number=change_input_number(choice)
   print('デバッグ:choice = ' + choice)
-
+  print('デバッグ:input_number = ' + input_number)
+  
 start_message()
 play()
