@@ -16,8 +16,8 @@ def view_question():
 
   count_a=0
   count_b=0
-  question_copy=''
   while count_a<3:
+    question_copy=''
     while count_b<3:
       question_copy+=question[1]
       count_b+=1
