@@ -2,9 +2,16 @@ import random
 
 level = 1
 
-print('違う漢字の番号(例:A1)を入力してください')
+def start_message():
+  print('違う漢字の番号(例:A1)を入力してください')
 
-print('レベル:' + str(level))
+def section_message():
+  print('レベル:' + str(level))
 
-choice = input('(例:A1)')
-print('デバッグ:choice = ' + choice)
+def play():
+  #section_message()
+  choice = input('(例:A1)')
+  print('デバッグ:choice = ' + choice)
+
+start_message()
+play()
