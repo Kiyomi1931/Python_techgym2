@@ -31,10 +31,10 @@ def view_question():
     print(question_str)
     i += 1
     j = 0
-
 def change_input_number(input_str):
-  change_alphabet=change[input_str[0]]
-  change_number=int(change[input_str[1]])
+  input_str_split = list(input_str)
+  change_alphabet=change[input_str_split[0]]
+  change_number=int(input_str_split[1])
   return change_alphabet+change_number
 def play():
   section_message()
