@@ -40,26 +40,26 @@ def change_input_number(input_str):
   input_number = row_number * 3 + col_number
   return input_number
 
-def is_correct_number(mistake_number,input_number):
-  if mistake_number==input_number:
+def is_correct_number(mistake_number, input_number):
+  if mistake_number == input_number:
     return True
   else:
     return False
 
 def view_result(is_correct):
-  if is_correct==True:
-    print('正解!')
+  if is_correct:
+    print('正解！')
   else:
     print('不正解')
 
 def play():
   section_message()
-  mistake_number=view_question()
+  mistake_number = view_question()
   choice = input('(例:A1)')
   print('デバッグ:choice = ' + choice)
   input_number = change_input_number(choice)
   print('デバッグ:input_number = ' + str(input_number))
-  is_correct=is_correct_number(mistake_number,input_number)
+  is_correct = is_correct_number(mistake_number, input_number)
   view_result(is_correct)
 
 start_message()
