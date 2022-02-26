@@ -1,5 +1,5 @@
 import random
-from re import A
+import math
 
 data = [['見','貝'], ['土','士'], ['眠','眼']]
 level = 1
@@ -47,34 +47,19 @@ def is_correct_number(mistake_number, input_number):
   else:
     return False
 
-def change_string(number):
-  a=number//3
-  b=number%3
-
-  if a==0:
-    number_a=1
-  elif a==1:
-    number_a=2
-  else:
-    number_a=3
-
-  if b==0:
-    number_b='A'
-  elif b==1:
-    number_b='B'
-
-  else:
-    number_b='C'
-  
-  print(number_b+str(number_a))
-
-
-def view_result(is_correct,mistake_number):
+def view_result(is_correct, mistake_number):
   if is_correct:
     print('正解！')
   else:
     print('不正解')
-    change_string(mistake_number)
+    print('正解は ' + change_string(mistake_number))
+
+def change_string(number):
+  number_data = ['A', 'B', 'C']
+  col_number = number % 3
+  row_number = math.floor(number / 3) + 1
+  string = number_data[col_number] + str(row_number)
+  return string
 
 def play():
   section_message()
@@ -84,7 +69,7 @@ def play():
   input_number = change_input_number(choice)
   print('デバッグ:input_number = ' + str(input_number))
   is_correct = is_correct_number(mistake_number, input_number)
-  view_result(is_correct,mistake_number)
+  view_result(is_correct, mistake_number)
 
 start_message()
 play()
