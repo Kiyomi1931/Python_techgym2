@@ -3,6 +3,8 @@ import math
 
 data = [['見','貝'], ['土','士'], ['眠','眼']]
 level = 1
+col=5
+row=4
 
 def start_message():
   print('違う漢字の番号(例:A1)を入力してください')
@@ -12,7 +14,7 @@ def section_message():
 
 def view_question():
   choice_data = random.randint(0, 2)
-  mistake_number = random.randint(0, 8)
+  mistake_number = random.randint(0, col*row)
   print('デバッグ:mistake_number = ' + str(mistake_number))
   question = data[choice_data]
   print(question)
@@ -20,10 +22,10 @@ def view_question():
   j = 0
   print('／｜A B C')
   print('ーーーーー')
-  while i < 3:
+  while i < row:
     question_str = str(i + 1) + '｜'
-    while j < 3:
-      if (i * 3 + j) == mistake_number:
+    while j < col:
+      if (i * col+ j) == mistake_number:
         question_str += question[1]
       else:
         question_str += question[0]
@@ -34,11 +36,11 @@ def view_question():
   return mistake_number
 
 def change_input_number(input_str):
-  str_data = { 'A':0, 'B':1, 'C':2 }
+  str_data = { 'A':0, 'B':1, 'C':2 ,'D':3,'E':4,'F':5,'G':6,'H':7,'I':8}
   input_str_split = list(input_str)
   col_number = str_data[input_str_split[0]]
   row_number = int(input_str_split[1]) - 1
-  input_number = row_number * 3 + col_number
+  input_number = row_number * col + col_number
   return input_number
 
 def is_correct_number(mistake_number, input_number):
@@ -55,9 +57,9 @@ def view_result(is_correct, mistake_number):
     print('正解は ' + change_string(mistake_number))
 
 def change_string(number):
-  number_data = ['A', 'B', 'C']
-  col_number = number % 3
-  row_number = math.floor(number / 3) + 1
+  number_data = ['A', 'B', 'C','D','E','F','G','I']
+  col_number = number % col
+  row_number = math.floor(number / col) + 1
   string = number_data[col_number] + str(row_number)
   return string
 
