@@ -2,6 +2,7 @@ import random
 import math
 
 data = [['見','貝'], ['土','士'], ['眠','眼']]
+number_data = ['A ', 'B ', 'C ', 'D ', 'E ', 'F ', 'G ', 'H ', 'I ']
 level = 1
 col = 5
 row = 4
@@ -20,8 +21,17 @@ def view_question():
   print(question)
   i = 0
   j = 0
-  print('／｜A B C')
-  print('ーーーーー')
+  k=0
+
+  col_output='／｜'
+  col_output2='---'
+  while k< col:
+    col_output+=number_data[k]
+    col_output2+='--'
+    k+=1
+  print(col_output)
+  print(col_output2)
+
   while i < row:
     question_str = str(i + 1) + '｜'
     while j < col:
@@ -57,7 +67,6 @@ def view_result(is_correct, mistake_number):
     print('正解は ' + change_string(mistake_number))
 
 def change_string(number):
-  number_data = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
   col_number = number % col
   row_number = math.floor(number / col) + 1
   string = number_data[col_number] + str(row_number)
