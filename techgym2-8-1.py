@@ -30,6 +30,7 @@ def view_question():
     print(question_str)
     i += 1
     j = 0
+  return mistake_number
 
 def change_input_number(input_str):
   str_data = { 'A':0, 'B':1, 'C':2 }
@@ -39,13 +40,27 @@ def change_input_number(input_str):
   input_number = row_number * 3 + col_number
   return input_number
 
+def is_correct_number(mistake_number,input_number):
+  if mistake_number==input_number:
+    return True
+  else:
+    return False
+
+def view_result(is_correct):
+  if is_correct==True:
+    print('正解!')
+  else:
+    print('不正解')
+
 def play():
   section_message()
-  view_question()
+  mistake_number=view_question()
   choice = input('(例:A1)')
   print('デバッグ:choice = ' + choice)
   input_number = change_input_number(choice)
   print('デバッグ:input_number = ' + str(input_number))
+  is_correct=is_correct_number(mistake_number,input_number)
+  view_result(is_correct)
 
 start_message()
 play()
